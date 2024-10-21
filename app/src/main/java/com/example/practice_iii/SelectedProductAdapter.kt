@@ -12,12 +12,13 @@ class SelectedProductAdapter(private val productList: List<Product>) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(product: Product) {
+            // Bind selected product details to the UI
             binding.nameTextView.text = product.name
             binding.descriptionTextView.text = product.description
             binding.sellerTextView.text = product.seller
             binding.priceTextView.text = "$${product.price}"
-            // Optionally load image into productImageView
 
+            // Disable the checkbox for selected products since they are not selectable in this screen
             binding.checkbox.isChecked = false
             binding.checkbox.isEnabled = false
         }
@@ -33,3 +34,4 @@ class SelectedProductAdapter(private val productList: List<Product>) :
 
     override fun getItemCount() = productList.size
 }
+

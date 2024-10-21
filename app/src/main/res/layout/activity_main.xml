@@ -5,6 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Filter Buttons Layout -->
+    <LinearLayout
+        android:id="@+id/filterLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Filter Buttons -->
+        <Button
+            android:id="@+id/allButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:text="All" />
+
+        <Button
+            android:id="@+id/smartphonesButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:text="Smartphones" />
+
+        <Button
+            android:id="@+id/laptopsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:text="Laptops" />
+    </LinearLayout>
+
     <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -12,7 +46,7 @@
         android:layout_height="0dp"
         android:padding="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/filterLayout"
         app:layout_constraintBottom_toTopOf="@id/goToSecondActivityButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

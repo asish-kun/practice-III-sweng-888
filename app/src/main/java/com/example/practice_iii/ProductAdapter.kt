@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.practice_iii.databinding.ItemProductBinding
 
 class ProductAdapter(
-    private val productList: List<Product>,
+    private var productList: List<Product>,
     private val onItemClick: (Product, Boolean) -> Unit
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
@@ -16,12 +16,13 @@ class ProductAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(product: Product) {
+            // Bind product details to the UI
             binding.nameTextView.text = product.name
             binding.descriptionTextView.text = product.description
             binding.sellerTextView.text = product.seller
             binding.priceTextView.text = "$${product.price}"
-            // Optionally load image into productImageView
 
+            // Setup checkbox and handle product selection
             binding.checkbox.setOnCheckedChangeListener(null)
             binding.checkbox.isChecked = selectedProducts.contains(product)
 
@@ -46,9 +47,16 @@ class ProductAdapter(
 
     override fun getItemCount() = productList.size
 
-//    method to clear selected products and notify the adapter
+    // Update product list and notify the adapter
+    fun updateData(newProductList: List<Product>) {
+        productList = newProductList
+        notifyDataSetChanged()
+    }
+
     fun clearSelection() {
+        // Clear selected products and update the UI
         selectedProducts.clear()
         notifyDataSetChanged()
     }
 }
+

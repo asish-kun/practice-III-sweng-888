@@ -10,5 +10,6 @@ data class Product(
     val description: String,
     val seller: String,
     val price: Double,
-    val picture: String // Could be a URL or a resource identifier
+    val picture: String, // Could be a URL or a resource identifier
+    val category: String
 ) : Parcelable
